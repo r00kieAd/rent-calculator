@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Calculator</title>
+    <link rel="shortcut icon" href="images/lease.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/c99c2be3a8.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section id="main">
+        <div id="title">
+            Rent Calculator
+        </div>
+        <div class="container">
+            <div class="overview">
+                <div class="pig">
+                    <img src="images/piggy-bank.png" alt="">
+                    <div class="balance-div">
+                        <h3>RENT BALANCE</h3>
+                        <div class="balance">
+                            <p>₹<span id="bal">0</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rent-form">
+                <div class="inputs">
+                    <div class="houserent-div">
+                        <label for="houserent"><span id="hr">House Rent</span><i
+                                class="fa-solid fa-house"></i></label><br>
+                        <input type="number" id="houserent">
+                    </div>
+                    <div class="electricity-div">
+                        <label for="electricitybill"><span id="eb">Electricity bill</span><i
+                                class="fa-solid fa-plug"></i></label><br>
+                        <input type="number" id="electricitybill">
+                    </div>
+                    <div class="maintainance-div">
+                        <label for="maintainancebill"><span id="mb">Maintainance bill</span><i
+                                class="fa-solid fa-screwdriver-wrench"></i></label><br>
+                        <input type="number" id="maintainancebill">
+                    </div>
+                    <div class="duration-div">
+                        <label for="period"><span id="pr">Period</span><i class="fa-solid fa-calendar-week"></i></label>
+                        <input type="number" id="period">
+                        <div class="radios">
+                            <div class="r1">
+                                <label for="years">Years</label>
+                                <input type="radio" name="years" id="years">
+                            </div>
+                            <div class="r2">
+                                <label for="months">Months</label>
+                                <input type="radio" name="months" id="months">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gst-slider">
+                        slider
+                    </div>
+                    <div class="submit">
+                        <button id="calculate">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
