@@ -1,3 +1,19 @@
+$font-familty: Monsterrat-Regular, sans-serif;
+$font-size: clamp(12px, 16px, 20px);
+$main-width: clamp(300px, 50rem, 60rem);
+
+
+@font-face {
+    font-family: Monsterrat, sans-serif;
+    src: url(fonts/Montserrat-Regular.ttf) format('.ttf');
+}
+
+.montserrat {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
 
 
 #title {
@@ -9,7 +25,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: auto;
+    width: $main-width;
+    font-family: $font-familty;
+    font-size: $font-size;
 
     .container {
         position: relative;
@@ -24,7 +42,136 @@
                     width: 350px;
                     height: auto;
                 }
+
                 text-align: center;
+            }
+        }
+
+        .rent-form {
+            .inputs {
+
+                display: grid;
+                row-gap: 10px;
+
+                .input-div {
+
+                    label {
+                        font-size: 16px;
+                        
+                        i {
+                            font-size: 13px;
+                            margin-left: 5px;
+                            margin-bottom: 2px;
+                            line-height: 10px;
+                        }
+                    }
+
+                    font-size: 14px;
+
+                    .input-fields[type="number"]::-webkit-outer-spin-button,
+                    .input-fields[type="number"]::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+
+                    /* For Firefox */
+                    .input-fields[type="number"] {
+                        -moz-appearance: textfield;
+                    }
+
+                    .input-fields {
+                        outline: none;
+                        width: fit-content;
+                        height: 30px;
+                        font-size: $font-size;
+                    }
+
+                    .radios {
+                        margin: 10px;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                    }
+                }
+            }
+
+            .gst-slider {
+
+                display: flex;
+                justify-content: center;
+
+                .toggleContainer {
+
+                    .toggle {
+                        --width: 45px;
+                        --height: calc(var(--width)/2);
+                        --border-radius: calc(var(--height)/2);
+                        display: inline-block;
+                        cursor: pointer;
+                        position: relative;
+                    }
+
+                    width: 150px;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+
+                    .off {
+                        color: #000000;
+                    }
+
+                    .off,
+                    .on {
+                        font-weight: 600;
+                    }
+                }
+
+                .toggle__input {
+                    display: none;
+                }
+
+                /* toggle unchecked background */
+                .toggle__fill {
+                    position: relative;
+                    width: 40px;
+                    height: 22px;
+                    border-radius: var(--border-radius);
+                    background: #dddddd;
+                    margin: 0 5px;
+                }
+
+                /* toggle checked background */
+                .toggle__input:checked~.toggle__fill {
+                    background: #0e22a1;
+                }
+
+                /*toggle thumb*/
+                .toggle__fill::after {
+                    content: "";
+                    color: transparent;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 22px;
+                    height: var(--height);
+                    background: #ffffff;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+                    border-radius: var(--border-radius);
+                    transition: transform 0.2s;
+                }
+
+                .toggle__input:checked~.toggle__fill::after {
+                    transform: translateX(var(--height));
+                }
+            }
+
+            .submit {
+                width: 100%;
+
+                button {
+                    width: inherit;
+                    height: 35px;
+                }
             }
         }
     }

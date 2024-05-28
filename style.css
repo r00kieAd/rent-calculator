@@ -1,3 +1,14 @@
+@font-face {
+  font-family: Monsterrat, sans-serif;
+  src: url(fonts/Montserrat-Regular.ttf) format(".ttf");
+}
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 #title {
   text-align: center;
 }
@@ -7,7 +18,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: auto;
+  width: clamp(300px, 50rem, 60rem);
+  font-family: Monsterrat-Regular, sans-serif;
+  font-size: 16px;
 }
 #main .container {
   position: relative;
@@ -22,4 +35,107 @@
 #main .container .overview .pig img {
   width: 350px;
   height: auto;
+}
+#main .container .rent-form .inputs {
+  display: grid;
+  row-gap: 10px;
+}
+#main .container .rent-form .inputs .input-div {
+  font-size: 14px;
+  /* For Firefox */
+}
+#main .container .rent-form .inputs .input-div label {
+  font-size: 16px;
+}
+#main .container .rent-form .inputs .input-div label i {
+  font-size: 13px;
+  margin-left: 5px;
+  margin-bottom: 2px;
+  line-height: 10px;
+}
+#main .container .rent-form .inputs .input-div .input-fields[type=number]::-webkit-outer-spin-button,
+#main .container .rent-form .inputs .input-div .input-fields[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#main .container .rent-form .inputs .input-div .input-fields[type=number] {
+  -moz-appearance: textfield;
+}
+#main .container .rent-form .inputs .input-div .input-fields {
+  outline: none;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 30px;
+  font-size: 16px;
+}
+#main .container .rent-form .inputs .input-div .radios {
+  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#main .container .rent-form .gst-slider {
+  display: flex;
+  justify-content: center;
+  /* toggle unchecked background */
+  /* toggle checked background */
+  /*toggle thumb*/
+}
+#main .container .rent-form .gst-slider .toggleContainer {
+  width: 150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#main .container .rent-form .gst-slider .toggleContainer .toggle {
+  --width: 45px;
+  --height: calc(var(--width)/2);
+  --border-radius: calc(var(--height)/2);
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
+#main .container .rent-form .gst-slider .toggleContainer .off {
+  color: #000000;
+}
+#main .container .rent-form .gst-slider .toggleContainer .off,
+#main .container .rent-form .gst-slider .toggleContainer .on {
+  font-weight: 600;
+}
+#main .container .rent-form .gst-slider .toggle__input {
+  display: none;
+}
+#main .container .rent-form .gst-slider .toggle__fill {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  border-radius: var(--border-radius);
+  background: #dddddd;
+  margin: 0 5px;
+}
+#main .container .rent-form .gst-slider .toggle__input:checked ~ .toggle__fill {
+  background: #0e22a1;
+}
+#main .container .rent-form .gst-slider .toggle__fill::after {
+  content: "";
+  color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: var(--height);
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border-radius: var(--border-radius);
+  transition: transform 0.2s;
+}
+#main .container .rent-form .gst-slider .toggle__input:checked ~ .toggle__fill::after {
+  transform: translateX(var(--height));
+}
+#main .container .rent-form .submit {
+  width: 100%;
+}
+#main .container .rent-form .submit button {
+  width: inherit;
+  height: 35px;
 }/*# sourceMappingURL=style.css.map */

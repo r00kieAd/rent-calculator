@@ -8,6 +8,10 @@
     <link rel="shortcut icon" href="images/lease.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/c99c2be3a8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -29,37 +33,44 @@
             </div>
             <div class="rent-form">
                 <div class="inputs">
-                    <div class="houserent-div">
+                    <div class="houserent-div input-div">
                         <label for="houserent"><span id="hr">House Rent</span><i
                                 class="fa-solid fa-house"></i></label><br>
-                        <input type="number" id="houserent">
+                        <input type="number" class="input-fields" id="houserent">
                     </div>
-                    <div class="electricity-div">
+                    <div class="electricity-div input-div">
                         <label for="electricitybill"><span id="eb">Electricity bill</span><i
                                 class="fa-solid fa-plug"></i></label><br>
-                        <input type="number" id="electricitybill">
+                        <input type="number" class="input-fields" id="electricitybill">
                     </div>
-                    <div class="maintainance-div">
+                    <div class="maintainance-div input-div">
                         <label for="maintainancebill"><span id="mb">Maintainance bill</span><i
                                 class="fa-solid fa-screwdriver-wrench"></i></label><br>
-                        <input type="number" id="maintainancebill">
+                        <input type="number" class="input-fields" id="maintainancebill">
                     </div>
-                    <div class="duration-div">
-                        <label for="period"><span id="pr">Period</span><i class="fa-solid fa-calendar-week"></i></label>
-                        <input type="number" id="period">
+                    <div class="duration-div input-div">
+                        <label for="period"><span id="pr">Period</span><i class="fa-solid fa-calendar-week"></i></label><br>
+                        <input type="number" class="input-fields" id="period">
                         <div class="radios">
                             <div class="r1">
                                 <label for="years">Years</label>
-                                <input type="radio" name="years" id="years">
+                                <input type="radio" class="radio-inputs" name="years" id="years">
                             </div>
                             <div class="r2">
                                 <label for="months">Months</label>
-                                <input type="radio" name="months" id="months">
+                                <input type="radio" class="radio-inputs" name="months" id="months">
                             </div>
                         </div>
                     </div>
                     <div class="gst-slider">
-                        slider
+                        <div class="toggleContainer">
+                            <p class="off">No GST</p>
+                            <label for="myToggle" class="toggle">
+                              <input class="toggle__input" type="checkbox" id="myToggle">
+                              <div class="toggle__fill"></div>
+                            </label>
+                            <p class="on">GST</p>
+                          </div>
                     </div>
                     <div class="submit">
                         <button id="calculate">Calculate</button>
