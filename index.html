@@ -41,36 +41,34 @@
                     <div class="electricity-div input-div">
                         <label for="electricitybill"><span id="eb">Electricity bill</span><i
                                 class="fa-solid fa-plug"></i></label><br>
-                        <input type="number" class="input-fields" id="electricitybill">
+                        <div class="electricity-units">
+                            <input type="number" class="input-fields ele-unit" id="unit1" placeholder="Old Unit">
+                            <input type="number" class="input-fields ele-unit" id="unit2" placeholder="New Unit">
+                        </div>
                     </div>
-                    <div class="maintainance-div input-div">
-                        <label for="maintainancebill"><span id="mb">Maintainance bill</span><i
+                    <div class="other-div input-div">
+                        <label for="otherbill"><span id="mb">Others (optional)</span><i
                                 class="fa-solid fa-screwdriver-wrench"></i></label><br>
-                        <input type="number" class="input-fields" id="maintainancebill">
+                        <input type="number" class="input-fields" id="otherbill">
                     </div>
                     <div class="duration-div input-div">
-                        <label for="period"><span id="pr">Period</span><i class="fa-solid fa-calendar-week"></i></label><br>
-                        <input type="number" class="input-fields" id="period">
-                        <div class="radios">
-                            <div class="r1">
-                                <label for="years">Years</label>
-                                <input type="radio" class="radio-inputs" name="years" id="years">
-                            </div>
-                            <div class="r2">
-                                <label for="months">Months</label>
-                                <input type="radio" class="radio-inputs" name="months" id="months">
-                            </div>
-                        </div>
+                        <label for="months">Month<i
+                                class="fa-solid fa-calendar-week"></i></label>
+                        <select name="months" id="months">
+                            <option value="a">a</option>
+                            <option value="b">b</option>
+                            <option value="c">c</option>
+                        </select>
                     </div>
                     <div class="gst-slider">
                         <div class="toggleContainer">
                             <p class="off">No GST</p>
                             <label for="myToggle" class="toggle">
-                              <input class="toggle__input" type="checkbox" id="myToggle">
-                              <div class="toggle__fill"></div>
+                                <input class="toggle__input" type="checkbox" id="myToggle">
+                                <div class="toggle__fill"></div>
                             </label>
                             <p class="on">GST</p>
-                          </div>
+                        </div>
                     </div>
                     <div class="submit">
                         <button id="calculate">Calculate</button>

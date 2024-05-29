@@ -33,8 +33,11 @@
   text-align: center;
 }
 #main .container .overview .pig img {
-  width: 350px;
+  width: 300px;
   height: auto;
+}
+#main .container .rent-form {
+  width: calc(clamp(300px, 50rem, 60rem) / 3);
 }
 #main .container .rent-form .inputs {
   display: grid;
@@ -46,12 +49,12 @@
 }
 #main .container .rent-form .inputs .input-div label {
   font-size: 16px;
+  line-height: 20px;
 }
 #main .container .rent-form .inputs .input-div label i {
-  font-size: 13px;
+  display: inline;
+  font-size: 14px;
   margin-left: 5px;
-  margin-bottom: 2px;
-  line-height: 10px;
 }
 #main .container .rent-form .inputs .input-div .input-fields[type=number]::-webkit-outer-spin-button,
 #main .container .rent-form .inputs .input-div .input-fields[type=number]::-webkit-inner-spin-button {
@@ -62,80 +65,90 @@
   -moz-appearance: textfield;
 }
 #main .container .rent-form .inputs .input-div .input-fields {
+  position: relative;
   outline: none;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: calc(clamp(300px, 50rem, 60rem) / 3);
   height: 30px;
   font-size: 16px;
+  padding: 0 3px;
 }
-#main .container .rent-form .inputs .input-div .radios {
-  margin: 10px;
+#main .container .rent-form .inputs .input-div .electricity-units {
+  width: 100%;
+  position: relative;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
 }
-#main .container .rent-form .gst-slider {
+#main .container .rent-form .inputs .input-div .electricity-units .ele-unit {
+  width: 45%;
+}
+#main .container .rent-form .inputs .input-div .electricity-units .ele-unit::-moz-placeholder {
+  text-align: center;
+}
+#main .container .rent-form .inputs .input-div .electricity-units .ele-unit::placeholder {
+  text-align: center;
+}
+#main .container .rent-form .inputs .gst-slider {
   display: flex;
   justify-content: center;
-  /* toggle unchecked background */
-  /* toggle checked background */
-  /*toggle thumb*/
+  align-items: center;
+  margin-right: 5%;
 }
-#main .container .rent-form .gst-slider .toggleContainer {
+#main .container .rent-form .inputs .gst-slider .toggleContainer {
   width: 150px;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-#main .container .rent-form .gst-slider .toggleContainer .toggle {
-  --width: 45px;
-  --height: calc(var(--width)/2);
-  --border-radius: calc(var(--height)/2);
+#main .container .rent-form .inputs .gst-slider .toggleContainer .toggle {
   display: inline-block;
   cursor: pointer;
   position: relative;
+  /* toggle unchecked background */
+  /* toggle checked background */
+  /*toggle thumb*/
 }
-#main .container .rent-form .gst-slider .toggleContainer .off {
-  color: #000000;
-}
-#main .container .rent-form .gst-slider .toggleContainer .off,
-#main .container .rent-form .gst-slider .toggleContainer .on {
-  font-weight: 600;
-}
-#main .container .rent-form .gst-slider .toggle__input {
+#main .container .rent-form .inputs .gst-slider .toggleContainer .toggle .toggle__input {
   display: none;
 }
-#main .container .rent-form .gst-slider .toggle__fill {
+#main .container .rent-form .inputs .gst-slider .toggleContainer .toggle .toggle__fill {
   position: relative;
   width: 40px;
-  height: 22px;
-  border-radius: var(--border-radius);
+  height: 20px;
+  border-radius: 10px;
   background: #dddddd;
   margin: 0 5px;
 }
-#main .container .rent-form .gst-slider .toggle__input:checked ~ .toggle__fill {
+#main .container .rent-form .inputs .gst-slider .toggleContainer .toggle .toggle__input:checked ~ .toggle__fill {
   background: #0e22a1;
 }
-#main .container .rent-form .gst-slider .toggle__fill::after {
+#main .container .rent-form .inputs .gst-slider .toggleContainer .toggle .toggle__fill::after {
   content: "";
   color: transparent;
   position: absolute;
   top: 0;
   left: 0;
-  width: 22px;
-  height: var(--height);
+  width: 20px;
+  height: 20px;
   background: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  border-radius: var(--border-radius);
+  border-radius: 10px;
   transition: transform 0.2s;
 }
-#main .container .rent-form .gst-slider .toggle__input:checked ~ .toggle__fill::after {
-  transform: translateX(var(--height));
+#main .container .rent-form .inputs .gst-slider .toggleContainer .toggle .toggle__input:checked ~ .toggle__fill::after {
+  transform: translateX(20px);
 }
-#main .container .rent-form .submit {
+#main .container .rent-form .inputs .gst-slider .toggleContainer .off {
+  color: #000000;
+}
+#main .container .rent-form .inputs .gst-slider .toggleContainer .off,
+#main .container .rent-form .inputs .gst-slider .toggleContainer .on {
+  font-weight: 600;
+}
+#main .container .rent-form .inputs .submit {
   width: 100%;
 }
-#main .container .rent-form .submit button {
+#main .container .rent-form .inputs .submit button {
   width: inherit;
   height: 35px;
 }/*# sourceMappingURL=style.css.map */

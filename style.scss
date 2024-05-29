@@ -1,6 +1,10 @@
 $font-familty: Monsterrat-Regular, sans-serif;
 $font-size: clamp(12px, 16px, 20px);
 $main-width: clamp(300px, 50rem, 60rem);
+$sliderWidth: 40px;
+$sliderHeight: calc($sliderWidth/2);
+$sliderBorderRadius: calc($sliderHeight/2);
+$form-width: calc($main-width / 3);
 
 
 @font-face {
@@ -39,7 +43,7 @@ $main-width: clamp(300px, 50rem, 60rem);
         .overview {
             .pig {
                 img {
-                    width: 350px;
+                    width: 300px;
                     height: auto;
                 }
 
@@ -48,6 +52,10 @@ $main-width: clamp(300px, 50rem, 60rem);
         }
 
         .rent-form {
+
+            width: $form-width;
+
+            // border: 1px solid black;
             .inputs {
 
                 display: grid;
@@ -57,12 +65,12 @@ $main-width: clamp(300px, 50rem, 60rem);
 
                     label {
                         font-size: 16px;
-                        
+                        line-height: 20px;
+
                         i {
-                            font-size: 13px;
+                            display: inline;
+                            font-size: 14px;
                             margin-left: 5px;
-                            margin-bottom: 2px;
-                            line-height: 10px;
                         }
                     }
 
@@ -80,97 +88,109 @@ $main-width: clamp(300px, 50rem, 60rem);
                     }
 
                     .input-fields {
+                        position: relative;
                         outline: none;
-                        width: fit-content;
+                        width: $form-width;
                         height: 30px;
                         font-size: $font-size;
+                        padding: 0 3px;
                     }
 
-                    .radios {
-                        margin: 10px;
+                    .electricity-units {
+                        width: 100%;
+                        position: relative;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+
+                        .ele-unit {
+                            width: 45%;
+                        }
+
+                        .ele-unit::placeholder {
+                            text-align: center;
+                        }
+                    }
+                }
+
+                .gst-slider {
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: 5%;
+
+                    .toggleContainer {
+
+                        .toggle {
+                            display: inline-block;
+                            cursor: pointer;
+                            position: relative;
+
+                            .toggle__input {
+                                display: none;
+                            }
+
+                            /* toggle unchecked background */
+                            .toggle__fill {
+                                position: relative;
+                                width: $sliderWidth;
+                                height: $sliderHeight;
+                                border-radius: $sliderBorderRadius;
+                                background: #dddddd;
+                                margin: 0 5px;
+                            }
+
+                            /* toggle checked background */
+                            .toggle__input:checked~.toggle__fill {
+                                background: #0e22a1;
+                            }
+
+                            /*toggle thumb*/
+                            .toggle__fill::after {
+                                content: "";
+                                color: transparent;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 20px;
+                                height: calc($sliderHeight);
+                                background: #ffffff;
+                                box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+                                border-radius: $sliderBorderRadius;
+                                transition: transform 0.2s;
+                            }
+
+                            .toggle__input:checked~.toggle__fill::after {
+                                transform: translateX($sliderHeight);
+                            }
+                        }
+
+                        width: 150px;
                         display: flex;
                         justify-content: space-around;
                         align-items: center;
-                    }
-                }
-            }
 
-            .gst-slider {
+                        .off {
+                            color: #000000;
+                        }
 
-                display: flex;
-                justify-content: center;
-
-                .toggleContainer {
-
-                    .toggle {
-                        --width: 45px;
-                        --height: calc(var(--width)/2);
-                        --border-radius: calc(var(--height)/2);
-                        display: inline-block;
-                        cursor: pointer;
-                        position: relative;
+                        .off,
+                        .on {
+                            font-weight: 600;
+                        }
                     }
 
-                    width: 150px;
-                    display: flex;
-                    justify-content: space-around;
-                    align-items: center;
 
-                    .off {
-                        color: #000000;
+                }
+
+                .submit {
+                    width: 100%;
+
+                    button {
+                        width: inherit;
+                        height: 35px;
                     }
-
-                    .off,
-                    .on {
-                        font-weight: 600;
-                    }
-                }
-
-                .toggle__input {
-                    display: none;
-                }
-
-                /* toggle unchecked background */
-                .toggle__fill {
-                    position: relative;
-                    width: 40px;
-                    height: 22px;
-                    border-radius: var(--border-radius);
-                    background: #dddddd;
-                    margin: 0 5px;
-                }
-
-                /* toggle checked background */
-                .toggle__input:checked~.toggle__fill {
-                    background: #0e22a1;
-                }
-
-                /*toggle thumb*/
-                .toggle__fill::after {
-                    content: "";
-                    color: transparent;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 22px;
-                    height: var(--height);
-                    background: #ffffff;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-                    border-radius: var(--border-radius);
-                    transition: transform 0.2s;
-                }
-
-                .toggle__input:checked~.toggle__fill::after {
-                    transform: translateX(var(--height));
-                }
-            }
-
-            .submit {
-                width: 100%;
-
-                button {
-                    width: inherit;
-                    height: 35px;
                 }
             }
         }
