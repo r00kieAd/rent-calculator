@@ -1,6 +1,6 @@
 @font-face {
-  font-family: Monsterrat, sans-serif;
-  src: url(fonts/Montserrat-Regular.ttf) format(".ttf");
+  font-family: "Monsterrat-Regular", sans-serif;
+  src: url(fonts/Montserrat-Regular.ttf) format("truetype");
 }
 .montserrat {
   font-family: "Montserrat", sans-serif;
@@ -9,8 +9,15 @@
   font-style: normal;
 }
 
+body {
+  background: #A0DEFF;
+}
+
 #title {
   text-align: center;
+  font-size: 31px;
+  font-family: "Monsterrat-Regular", sans-serif;
+  margin-bottom: 3%;
 }
 
 #main {
@@ -18,9 +25,28 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: clamp(300px, 50rem, 60rem);
-  font-family: Monsterrat-Regular, sans-serif;
+  width: clamp(40rem, 130.208vw, 60rem);
+  padding: 1rem;
+  border-radius: 10px;
+  font-family: "Monsterrat-Regular", sans-serif;
   font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+@media screen and (max-width: 825px) {
+  #main {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 600px) {
+  #main {
+    position: relative;
+    top: 0;
+    transform: none;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 #main .container {
   position: relative;
@@ -29,98 +55,159 @@
   justify-content: space-around;
   align-items: center;
 }
-#main .container .overview .pig {
-  text-align: center;
+@media screen and (max-width: 600px) {
+  #main .container {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 #main .container .overview .pig img {
-  width: 300px;
+  width: 280px;
   height: auto;
 }
+#main .container .overview .pig .balance-div {
+  font-family: "Monsterrat-Regular", sans-serif;
+  text-align: center;
+  font-size: 19px;
+}
 #main .container .rent-form {
-  width: calc(clamp(300px, 50rem, 60rem) / 3);
+  width: calc(clamp(40rem, 130.208vw, 60rem) / 3);
+}
+@media screen and (max-width: 600px) {
+  #main .container .rent-form {
+    width: 90%;
+  }
 }
 #main .container .rent-form .inputs {
   display: grid;
   row-gap: 10px;
 }
-#main .container .rent-form .inputs .input-div {
-  font-size: 14px;
-  /* For Firefox */
-}
 #main .container .rent-form .inputs .input-div label {
   font-size: 16px;
-  line-height: 20px;
+  line-height: 24px;
 }
 #main .container .rent-form .inputs .input-div label i {
   display: inline;
-  font-size: 14px;
+  font-size: 13px;
   margin-left: 5px;
-}
-#main .container .rent-form .inputs .input-div .input-fields[type=number]::-webkit-outer-spin-button,
-#main .container .rent-form .inputs .input-div .input-fields[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-#main .container .rent-form .inputs .input-div .input-fields[type=number] {
-  -moz-appearance: textfield;
 }
 #main .container .rent-form .inputs .input-div .input-fields {
   position: relative;
   outline: none;
-  width: calc(clamp(300px, 50rem, 60rem) / 3);
-  height: 30px;
+  width: calc(clamp(40rem, 130.208vw, 60rem) / 3);
+  height: 32px;
   font-size: 16px;
-  padding: 0 3px;
+  padding: 0 10px;
+  background: #EEF5FF;
+  border: 1px solid #EEF5FF;
+  border-radius: 5px;
+  transition: border-color 0.2s;
 }
-#main .container .rent-form .inputs .input-div .electricity-units {
+@media screen and (max-width: 600px) {
+  #main .container .rent-form .inputs .input-div .input-fields {
+    width: 100%;
+  }
+}
+#main .container .rent-form .inputs .electricity-div .electricity-units {
   width: 100%;
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-#main .container .rent-form .inputs .input-div .electricity-units .ele-unit {
+#main .container .rent-form .inputs .electricity-div .electricity-units .ele-unit {
   width: 45%;
 }
-#main .container .rent-form .inputs .input-div .electricity-units .ele-unit::-moz-placeholder {
+#main .container .rent-form .inputs .electricity-div .electricity-units .ele-unit::-moz-placeholder {
   text-align: center;
 }
-#main .container .rent-form .inputs .input-div .electricity-units .ele-unit::placeholder {
+#main .container .rent-form .inputs .electricity-div .electricity-units .ele-unit::placeholder {
   text-align: center;
+}
+#main .container .rent-form .inputs .other-div .others::-moz-placeholder {
+  text-align: center;
+}
+#main .container .rent-form .inputs .other-div .others::placeholder {
+  text-align: center;
+}
+#main .container .rent-form .inputs .duration-div {
+  position: relative;
+  font-family: "Monsterrat-Regular", sans-serif;
+  margin-left: 10%;
+}
+#main .container .rent-form .inputs .duration-div #months {
+  margin-top: 5px;
+  width: 120px;
+  height: 30px;
+  padding-left: 3%;
+  font-size: 16px;
+  border: #EEF5FF;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(images/calendar-days-solid.svg) 90%/12% no-repeat #EEE;
+  background-color: #EEF5FF;
+  cursor: pointer;
+}
+#main .container .rent-form .inputs .duration-div #months .month {
+  color: white;
+  background-color: black;
+}
+#main .container .rent-form .inputs .duration-div label[for=current-year] {
+  margin-left: 3%;
+}
+@media screen and (max-width: 325px) {
+  #main .container .rent-form .inputs .duration-div {
+    width: inherit;
+    margin: 1px;
+  }
+  #main .container .rent-form .inputs .duration-div label[for=current-year] {
+    display: inline;
+    float: right;
+    margin-left: 0;
+    margin-top: 4%;
+  }
 }
 #main .container .rent-form .inputs .gst-slider {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  margin-right: 5%;
+  margin: 0 10%;
+}
+@media screen and (max-width: 325px) {
+  #main .container .rent-form .inputs .gst-slider {
+    margin: 0;
+  }
 }
 #main .container .rent-form .inputs .gst-slider .toggleContainer {
-  width: 150px;
+  width: 90%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 #main .container .rent-form .inputs .gst-slider .toggleContainer .toggle {
+  --width: 45px;
+  --height: calc(var(--width)/2);
+  --border-radius: calc(var(--height)/2);
   display: inline-block;
   cursor: pointer;
   position: relative;
-  /* toggle unchecked background */
-  /* toggle checked background */
-  /*toggle thumb*/
+  margin: 0 10px;
 }
 #main .container .rent-form .inputs .gst-slider .toggleContainer .toggle .toggle__input {
   display: none;
 }
 #main .container .rent-form .inputs .gst-slider .toggleContainer .toggle .toggle__fill {
   position: relative;
-  width: 40px;
-  height: 20px;
-  border-radius: 10px;
-  background: #dddddd;
-  margin: 0 5px;
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius);
+  background: #EEF5FF;
+  transition: background 0.2s;
 }
 #main .container .rent-form .inputs .gst-slider .toggleContainer .toggle .toggle__input:checked ~ .toggle__fill {
-  background: #0e22a1;
+  background: #A0DEFF;
 }
 #main .container .rent-form .inputs .gst-slider .toggleContainer .toggle .toggle__fill::after {
   content: "";
@@ -128,22 +215,15 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 20px;
-  height: 20px;
-  background: #ffffff;
+  width: 22px;
+  height: calc(var(--height) - 0px);
+  background: #EEF5FF;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   transition: transform 0.2s;
 }
 #main .container .rent-form .inputs .gst-slider .toggleContainer .toggle .toggle__input:checked ~ .toggle__fill::after {
-  transform: translateX(20px);
-}
-#main .container .rent-form .inputs .gst-slider .toggleContainer .off {
-  color: #000000;
-}
-#main .container .rent-form .inputs .gst-slider .toggleContainer .off,
-#main .container .rent-form .inputs .gst-slider .toggleContainer .on {
-  font-weight: 600;
+  transform: translateX(var(--height));
 }
 #main .container .rent-form .inputs .submit {
   width: 100%;
@@ -151,4 +231,15 @@
 #main .container .rent-form .inputs .submit button {
   width: inherit;
   height: 35px;
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: #A0DEFF;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s, border-color 0.2s;
+}
+#main .container .rent-form .inputs .submit button:hover {
+  border-color: #A0DEFF;
+  background: transparent;
 }/*# sourceMappingURL=style.css.map */
