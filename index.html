@@ -35,20 +35,20 @@
                     <div class="houserent-div input-div">
                         <label for="houserent"><span id="hr">House Rent</span><i
                                 class="fa-solid fa-house"></i></label><br>
-                        <input type="text" class="input-fields" id="houserent">
+                        <input type="text" class="input-fields" id="houserent" value="">
                     </div>
                     <div class="electricity-div input-div">
                         <label for="electricitybill"><span id="eb">Electricity bill</span><i
                                 class="fa-solid fa-plug"></i></label><br>
                         <div class="electricity-units">
-                            <input type="text" class="input-fields ele-unit" id="unit1" placeholder="Old Unit">
-                            <input type="text" class="input-fields ele-unit" id="unit2" placeholder="New Unit">
+                            <input type="text" class="input-fields ele-unit" id="unit1" placeholder="Old Unit" value="">
+                            <input type="text" class="input-fields ele-unit" id="unit2" placeholder="New Unit" value="">
                         </div>
                     </div>
                     <div class="other-div input-div">
                         <label for="otherbill"><span id="mb">Other bills</span><i class="fa-solid fa-chart-pie"></i></label><br>
                         <input type="text" class="input-fields others" id="otherbill"
-                            placeholder="eg. EMIs or late rent">
+                            placeholder="eg. EMIs or late rent" value="">
                     </div>
                     <div class="duration-div input-div">
                         <label for="months">Month:&nbsp;</label>
@@ -70,9 +70,40 @@
                         </div>
                     </div>
                     <div class="submit">
-                        <button id="calculate" class="print">Print Bill</button>
+                        <button id="printer" class="print">Print Bill</button>
                     </div>
                 </div>
+            </div>
+            <div class="print-form">
+                <table class="items">
+                    <tr>
+                        <th>Items</th>
+                        <th class="amt">Amount</th>
+                    </tr>
+                    <tr>
+                        <td>Rent</td>
+                        <td class="amt"><span id="rent" class="abc"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Electricity</td>
+                        <td class="amt"><span id="elebill"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Others(Maintainance or late fees)</td>
+                        <td class="amt"><span id="oth"></span></td>
+                    </tr>
+                </table>
+                <hr>
+                <table class="totals">
+                    <tr>
+                        <td>Taxes</td>
+                        <td class="amt"><span id="tax"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Total for <span id="dt"></span></td>
+                        <td class="amt"><span id="bill"></span></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </section>

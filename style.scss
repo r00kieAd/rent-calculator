@@ -28,6 +28,10 @@ body {
     font-size: calc($font-size + 15px);
     font-family: $font-familty;
     margin-bottom: 3%;
+
+    @media print {
+        display: none;
+    }
 }
 
 #main {
@@ -39,7 +43,7 @@ body {
     padding: 1rem;
     border-radius: 10px;
     font-family: $font-familty;
-    font-size: $font-size;
+    // font-size: $font-size;
     background-color: rgb(255 255 255 / 30%);
     backdrop-filter: blur(10px);
 
@@ -62,7 +66,8 @@ body {
         justify-content: space-around;
         align-items: center;
 
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 600px),
+        print {
             flex-direction: column;
             justify-content: center;
         }
@@ -78,6 +83,10 @@ body {
                     font-family: $font-familty;
                     text-align: center;
                     font-size: calc($font-size + 3px);
+
+                    @media print {
+                        display: none;
+                    }
                 }
             }
         }
@@ -282,5 +291,56 @@ body {
                 }
             }
         }
+
+        .print-form {
+            display: none;
+            width: 75%;
+
+            .items,
+            .totals {
+                width: 100%;
+                font-size: 24px;
+                font-family: $font-familty;
+
+                th {
+                    height: 70px;
+                    text-align: left;
+                }
+    
+                td {
+                    height: 20px;
+                }
+    
+                .amt {
+                    text-align: right;
+                    font-weight: 700;
+                }
+            }
+
+            hr {
+                border: none;
+                border-top: 1px solid black;
+            }
+        }
+
+        @media print {
+
+            .rent-form {
+                display: none;
+            }
+
+            .print-form {
+                display: block;
+            }
+
+        }
+    }
+
+    @media print {
+        position: relative;
+        top: 5rem;
+        transform: none;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }

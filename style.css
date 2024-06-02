@@ -19,6 +19,11 @@ body {
   font-family: "Monsterrat-Regular", sans-serif;
   margin-bottom: 3%;
 }
+@media print {
+  #title {
+    display: none;
+  }
+}
 
 #main {
   position: absolute;
@@ -29,7 +34,6 @@ body {
   padding: 1rem;
   border-radius: 10px;
   font-family: "Monsterrat-Regular", sans-serif;
-  font-size: 16px;
   background-color: rgba(255, 255, 255, 0.3);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
@@ -55,7 +59,7 @@ body {
   justify-content: space-around;
   align-items: center;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px), print {
   #main .container {
     flex-direction: column;
     justify-content: center;
@@ -69,6 +73,11 @@ body {
   font-family: "Monsterrat-Regular", sans-serif;
   text-align: center;
   font-size: 19px;
+}
+@media print {
+  #main .container .overview .pig .balance-div {
+    display: none;
+  }
 }
 #main .container .rent-form {
   width: calc(clamp(40rem, 130.208vw, 60rem) / 3);
@@ -242,4 +251,49 @@ body {
 #main .container .rent-form .inputs .submit button:hover {
   border-color: #A0DEFF;
   background: transparent;
+}
+#main .container .print-form {
+  display: none;
+  width: 75%;
+}
+#main .container .print-form .items,
+#main .container .print-form .totals {
+  width: 100%;
+  font-size: 24px;
+  font-family: "Monsterrat-Regular", sans-serif;
+}
+#main .container .print-form .items th,
+#main .container .print-form .totals th {
+  height: 70px;
+  text-align: left;
+}
+#main .container .print-form .items td,
+#main .container .print-form .totals td {
+  height: 20px;
+}
+#main .container .print-form .items .amt,
+#main .container .print-form .totals .amt {
+  text-align: right;
+  font-weight: 700;
+}
+#main .container .print-form hr {
+  border: none;
+  border-top: 1px solid black;
+}
+@media print {
+  #main .container .rent-form {
+    display: none;
+  }
+  #main .container .print-form {
+    display: block;
+  }
+}
+@media print {
+  #main {
+    position: relative;
+    top: 5rem;
+    transform: none;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }/*# sourceMappingURL=style.css.map */
