@@ -58,6 +58,7 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  color: #001C30;
 }
 @media screen and (max-width: 600px), print {
   #main .container {
@@ -91,9 +92,13 @@ body {
   display: grid;
   row-gap: 10px;
 }
+#main .container .rent-form .inputs .input-div .req {
+  color: #CA4E79;
+}
 #main .container .rent-form .inputs .input-div label {
   font-size: 16px;
   line-height: 24px;
+  color: #22577E;
 }
 #main .container .rent-form .inputs .input-div label i {
   display: inline;
@@ -264,12 +269,12 @@ body {
 }
 #main .container .print-form .items th,
 #main .container .print-form .totals th {
-  height: 70px;
+  height: 60px;
   text-align: left;
 }
 #main .container .print-form .items td,
 #main .container .print-form .totals td {
-  height: 20px;
+  height: 30px;
 }
 #main .container .print-form .items .amt,
 #main .container .print-form .totals .amt {

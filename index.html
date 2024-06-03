@@ -33,12 +33,12 @@
             <div class="rent-form">
                 <div class="inputs">
                     <div class="houserent-div input-div">
-                        <label for="houserent"><span id="hr">House Rent</span><i
+                        <label for="houserent"><span id="hr">House Rent<span class="req">*</span></span><i
                                 class="fa-solid fa-house"></i></label><br>
                         <input type="text" class="input-fields" id="houserent" value="">
                     </div>
                     <div class="electricity-div input-div">
-                        <label for="electricitybill"><span id="eb">Electricity bill</span><i
+                        <label for="electricitybill"><span id="eb">Electricity bill<span class="req">*</span></span><i
                                 class="fa-solid fa-plug"></i></label><br>
                         <div class="electricity-units">
                             <input type="text" class="input-fields ele-unit" id="unit1" placeholder="Old Unit" value="">
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div class="submit">
-                        <button id="printer" class="print">Print Bill</button>
+                        <button id="printer" class="print">Print Bill <i class="fa-solid fa-print"></i></button>
                     </div>
                 </div>
             </div>
@@ -82,15 +82,15 @@
                     </tr>
                     <tr>
                         <td>Rent</td>
-                        <td class="amt"><span id="rent" class="abc"></span></td>
+                        <td class="amt">₹&nbsp;<span id="rent" class="abc"></span></td>
                     </tr>
                     <tr>
                         <td>Electricity</td>
-                        <td class="amt"><span id="elebill"></span></td>
+                        <td class="amt">₹&nbsp;<span id="elebill"></span></td>
                     </tr>
                     <tr>
                         <td>Others(Maintainance or late fees)</td>
-                        <td class="amt"><span id="oth"></span></td>
+                        <td class="amt">₹&nbsp;<span id="oth"></span></td>
                     </tr>
                 </table>
                 <hr>
@@ -101,7 +101,7 @@
                     </tr>
                     <tr>
                         <td>Total for <span id="dt"></span></td>
-                        <td class="amt"><span id="bill"></span></td>
+                        <td class="amt">₹&nbsp;<span id="bill"></span></td>
                     </tr>
                 </table>
             </div>

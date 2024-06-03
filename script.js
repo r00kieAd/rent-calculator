@@ -1,18 +1,12 @@
 
-
-/* TODO,
-bug fix 1: when double clicking on input, it keeps subtracting forever
-bug fix 2: input values not getting transfered to print-form elements
-*/
-
-
-
 const date = new Date();
 const currMonth = date.getMonth();
 let currYear = parseInt(date.getFullYear());
+// const pattern = /[a-bA-B]|[!@#$%&*^()]/;
+const pattern = /^[0-9]+(\.[0-9]+)?$/;
 let original_bill = undefined;
 let bill = undefined;
-let tax = '0';
+let tax = '0%';
 let errors = new Array();
 $(document).ready(
     function () {
@@ -41,16 +35,18 @@ $(document).ready(
 );
 
 if (errors.length != 0) {
-    
+
 }
 
 function error(ele) {
+    if ($(ele).val() == "") return false;
     const id = $(ele).prop('id');
-    if (/[a-bA-B]/.test($(ele).val())) {
+    if (!pattern.test($(ele).val())) {
         $(ele).css('border-color', '#CA4E79');
         if (!errors.includes(id)) {
             errors.push(id);
             $('.print').css('opacity', '0.5');
+            $('.print').html('Invalid Inputs <i class="fa-solid fa-circle-exclamation"></i>');
         }
         return true;
     } else {
@@ -58,14 +54,15 @@ function error(ele) {
             errors.splice(errors.indexOf(id), 1);
             if (errors.length == 0) {
                 $('.print').css('opacity', '1');
+                $('.print').html('Print Bill <i class="fa-solid fa-print"></i>');
             }
         }
-        $(ele).css('border-color', '#EEF5FF');
+        $(ele).css('border-color', '#A0DEFF');
         return false;
     }
 }
 
-$('.input-fields').click(function () {
+$('.input-fields').focus(function () {
     $(this).css('border-color', '#A0DEFF');
     if ($(this).val() != "" && !error(this)) {
         bill = bill - $(this).val();
@@ -77,6 +74,7 @@ $('.input-fields').blur(function () {
     if (error(this)) {
         return;
     }
+    $(this).css('border-color', '#EEF5FF');
     if ($(this).val() != "") {
         let initial = $('#bal').text();
         bill = parseFloat(initial) + parseFloat($(this).val());
@@ -86,6 +84,7 @@ $('.input-fields').blur(function () {
 });
 
 $('.input-fields').on('keypress', function () {
+    $('#printer').html('Print Bill <i class="fa-solid fa-print"></i>');
     !error(this);
 })
 
@@ -110,26 +109,38 @@ $('.toggle__input').on('change', function () {
         bill = (parseFloat(bill) * 0.18) + parseFloat(bill);
         tax = '18%';
     } else {
-        tax = '0';
+        tax = '0%';
         bill = parseFloat(original_bill);
     }
     $('#bal').text(Math.floor(bill));
 });
 
 function printer() {
-    
+
     const printForm = () => {
         const printFrame = $("<iFrame>", {
             src: 'index.html',
             title: 'summary',
             style: 'display: none'
         }).appendTo('body');
-        
-        printFrame.on('load', function() {
+
+        printFrame.on('load', function () {
             const contentWindow = this.contentWindow;
+            const contentDocument = contentWindow.document;
+            contentDocument.write(`
+                <html>
+                <head>
+                    <title>Summary</title>
+                    <link rel="stylesheet" type="text/css" href="style.css">
+                </head>
+                <body>
+                    ${$('body').html()}
+                </body>
+                </html>
+            `);
+            contentDocument.close();
             contentWindow.focus();
             contentWindow.print();
-            // contentWindow.remove();
         })
     }
 
@@ -138,17 +149,26 @@ function printer() {
 }
 
 $('#printer').click(
-    function() {
-        if (errors.length == 0 && bill != undefined && bill != 0) {
+    function () {
 
-            $('#rent').text('none');
-            $('#elebill').text('none');
-            $('#oth').text('none');
-            $('#dt').text('none');
+        if (errors.length >= 1) {
+            return;
+        }
+
+        if ($('#houserent').val() == "" || ($('#unit1').val() == "" && $('#unit2').val() == "")) {
+            $(this).html('Enter Required Fields <i class="fa-solid fa-circle-exclamation"></i>');
+            return;
+        }
+
+        if (bill != undefined && bill != 0) {
+            $('#rent').text($('#houserent').val());
+            $('#elebill').text(($('#unit2').val() + $('#unit1').val()) || '0');
+            $('#oth').text($('#otherbill').val() || '0');
+            $('#dt').text($(`option[value="${$('#months').val()}"]`).text() + ' ' + $('#year').text());
             $('#tax').text(tax);
             $('#bill').text(bill);
             printer();
-
+            return;
         }
     }
 );
