@@ -1,3 +1,5 @@
+// TODO: bug fix, form doesn't resets properly in consequtive inputs or page refreshes.
+
 
 const date = new Date();
 const currMonth = date.getMonth();
